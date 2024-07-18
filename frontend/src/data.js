@@ -1,7 +1,7 @@
 export const data =[
     {
         id:"1",
-        group:"web",
+        group:"React",
         image:["images1", "images2", "images"],
         title:"titles",
         github:"github",
@@ -9,7 +9,7 @@ export const data =[
     },
     {
         id:"2",
-        group:"Ui",
+        group:"Angular",
         image:["images1", "images2", "images"],
         title:"titles",
         github:"github",
@@ -17,7 +17,15 @@ export const data =[
     },
     {
         id:"3",
-        group:"Ux",
+        group:"JavaScript",
+        image:["images1", "images2", "images"],
+        title:"titles",
+        github:"github",
+        demo:"demo"
+    },
+    {
+        id:"3",
+        group:"NodeJS",
         image:["images1", "images2", "images"],
         title:"titles",
         github:"github",

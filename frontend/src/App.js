@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { data } from './data';
 import NavTab from './NavTab/NavTab';
-import About from './About Me/About';
+
 
 function App() {
 
@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
      <button className='btn btn__primary about'>About Me</button>
-      <About load={load}/> 
+    
       <NavTab
       tabs={getTabs()}
       onChange={setProject}

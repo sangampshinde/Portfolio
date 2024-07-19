@@ -3,7 +3,7 @@ import "./NavTab.css";
 
 const NavTab = ({tabs,onChange}) => {
 
-    const element = useRef(new Array());
+    const element = useRef([]);
     const [active,setActive]=useState({})
 
     useEffect(()=>{

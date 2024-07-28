@@ -1,7 +1,16 @@
 import React from 'react';
 import "./About.css";
+import {useNavigate} from "react-router-dom"
 
 function About() {
+
+  const navigate =useNavigate();
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+
+
   return (
     <div className="container">
       {/* Name with Animation */}
@@ -31,28 +40,29 @@ function About() {
       {/* Contact Section */}
       <div className="contact-section">
         <h2 className="section-title">Contact Me</h2>
-        <form className="contact-form">
-          <div className="form-group">
-            <label>Name</label>
-            <input type="text" className="form-input" />
-          </div>
-          <div className="form-group">
-            <label>Email</label>
-            <input type="email" className="form-input" />
-          </div>
-          <div className="form-group">
-            <label>Message</label>
-            <textarea className="form-input" rows="4"></textarea>
-          </div>
-          <button type="submit" className="submit-button">Send</button>
-        </form>
+        <div className="contact-info">
+          <p>Email: <a href="mailto:sangampshinde@gmail.com">sangampshinde@gmail.com</a></p>
+          <p>Phone: <a href="tel:(+91)9823448966">(+91)9823448966 </a></p>
+        </div>
       </div>
+
+      
+    
 
       {/* Resume Button */}
       <div className="resume-button-container">
-        <a href="../../public/sangam_shinde_resume.pdf" download className="btn btn__primary">Download Resume</a>
+        <a href="/sangam_shinde_resume.pdf" download className="btn btn__primary">Download Resume</a>
       </div>
+
+
+      {/* Back button */}
+      <div className="back-button-container">
+        <button onClick={handleBackClick} className="btn btn__secondary">Back to Portfolio</button>
+      </div>
+
+      
     </div>
+
   );
 }
 

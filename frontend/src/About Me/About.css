@@ -79,6 +79,7 @@
   }
   
   .resume-button-container {
+    margin: 20px 0;
     text-align: center;
   }
   
@@ -102,3 +103,66 @@
     }
   }
   
+  /* Contact Section CSS */
+
+.contact-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #272f39;;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.contact-info {
+  margin-top: 10px;
+  background-color: #272f39;;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.social-media {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.social-media a {
+  margin-right: 20px;
+  color: #fff;
+}
+
+.social-media i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.social-media a:hover {
+  color: #272f39;;
+}
+
+.social-media a:hover i {
+  color: #fff;
+}
+
+.white{
+  color: #fff;
+  text-decoration: none;
+}
+

@@ -4,13 +4,13 @@ export const data =[
         group:"React",
         image:["Portfolio.JPG"],
         title:"Portfolio",
-        github:"",
+        github:"https://github.com/sangampshinde/Portfolio",
         demo:"demo"
     },
     {
         id:"2",
         group:"Angular",
-        image:["images1", "images2", "images"],
+        image:["BookstoreApplication.JPG"],
         title:"BookStore Application",
         github:"https://github.com/sangampshinde/BookStore-Application",
         demo:"demo"
@@ -41,12 +41,20 @@ export const data =[
     },
     
     {
-        id:"3",
+        id:"6",
         group:"NodeJS",
         image:["images1", "images2", "images"],
         title:"titles",
         github:"github",
         demo:"demo"
+    },
+    {
+        id:"7",
+        group:"React",
+        image:["stockmarket.JPG"],
+        title:"Stock Market Portfolio",
+        github:"https://github.com/sangampshinde/Stock-Market-Portfolio-App",
+        demo:"https://66eef2a982cdde9222f1eb40--stirring-taffy-2cd93f.netlify.app"
     }
 ]
 

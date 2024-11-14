@@ -1,39 +1,51 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "./NavTab.css";
 
-const NavTab = ({tabs,onChange}) => {
+const NavTab = ({ tabs, onChange }) => {
+  const element = useRef([]);
+  const [active, setActive] = useState({});
+  
 
-    const element = useRef([]);
-    const [active,setActive]=useState({})
+  useEffect(() => {
+    if (element.current[0]) {
+      const firstTab = element.current[0].getBoundingClientRect();
+      setActive(firstTab);
+      onChange(tabs[0]); // Pass the name of the first tab to onChange
+    }
+  }, [element]); // Include all dependencies
 
-    useEffect(()=>{
-      setActive(element.current[0].getBoundingClientRect());
-      onChange(element.current[0].innerText);
-    },[element])
+  
+  useEffect(() => {
+
+  },[tabs, onChange]);
+
+ 
 
   return (
     <nav className='nav__tabs'>
       {
-        tabs.map((name,index)=>(
+        tabs.map((name, index) => (
           <button
-          ref={el=>{element.current[index]=el}}
-          onClick={(e)=>{
-            setActive(e.target.getBoundingClientRect());
-            onChange(name);
-          }}
-          key={index}>
+            ref={el => { element.current[index] = el; }}
+            onClick={(e) => {
+              setActive(e.target.getBoundingClientRect());
+              console.log(e.target.getBoundingClientRect());
+              onChange(name); // Pass the name of the selected tab to onChange
+            }}
+            key={index}>
             {name}
           </button>
         ))
       }
-      <span className='indicator' style={{left:`${active.left}px`,
-                                          top:`${active.top}px`,
-                                        width:`${active.width}px`,
-                                        height:`${active.height}px`,
-                                        }}>
-                                      
-
+      <span className='indicator' style={{
+        left: `${active.left}px`,
+        top: `${active.top}px`,
+        width: `${active.width}px`,
+        height: `${active.height}px`,
+      }}>
       </span>
-    </nav>)
-}
-export default NavTab
+    </nav>
+  );
+};
+
+export default NavTab;

@@ -17,13 +17,6 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
-
-
-const handleWorkFilter = (item) => {
-
-}
-
-
  useEffect(() => {
     const query = '*[_type == "works"]';
 
@@ -36,6 +29,27 @@ const handleWorkFilter = (item) => {
         console.error("Error fetching about data:", err);
       });
   }, []);
+
+
+  const handleWorkFilter = (item) => {
+    setActiveFilter(item);
+    setAnimateCard([{ y: 100, opacity: 0 }])
+
+
+    setTimeout(()=>{
+      
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+
+      if (item === 'All') {
+        setFilterWork(works);
+      }else{
+        setFilterWork(works.filter((work) =>work.tags.includes(item)))
+      }
+
+    },500)
+     
+
+  }
 
 
 
@@ -70,7 +84,7 @@ const handleWorkFilter = (item) => {
      {filterWork.map((work, index) => (
       <div className="app__work-item app__flex" key={index}>
          <div className="app__work-img app__flex">
-           <img src={urlFor(work.imgUrl)} alt={work.name} />
+           <img src={urlFor(work?.imgUrl)} alt={work.name} />
               <motion.div
               whileHover={{ opacity: [0, 1] }}
               transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}

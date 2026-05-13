@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -10,30 +11,66 @@ const Footer = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { username, email, message } = formData;
+
+ console.log("1", process.env.REACT_APP_SERVICE_ID);
+console.log("2", process.env.REACT_APP_TEMPLATE_ID);
+console.log("3", process.env.REACT_APP_PUBLIC_KEY);
+ 
+
+  const { name, email, message } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
-    setLoading(true);
+const handleSubmit = async () => {
+  setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: formData.username,
-      email: formData.email,
-      message: formData.message,
-    };
+  try {
 
-    client.create(contact)
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-      })
-      .catch((err) => console.log(err));
-  };
+    // ✅ Send Email First
+    await emailjs.send(
+      process.env.REACT_APP_SERVICE_ID,
+    'template_68gn0rp',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      process.env.REACT_APP_PUBLIC_KEY
+    );
+
+    // ✅ Optional: Save to Sanity
+    try {
+      const contact = {
+        _type: 'contact',
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      };
+
+      await client.create(contact);
+    } catch (sanityError) {
+      console.log('Sanity save failed:', sanityError);
+    }
+
+    // ✅ Success
+    setLoading(false);
+    setIsFormSubmitted(true);
+
+    // ✅ Clear form
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+    });
+
+  } catch (error) {
+    setLoading(false);
+    console.log('Email error:', error);
+  }
+};
 
   return (
     <>
@@ -42,17 +79,29 @@ const Footer = () => {
       <div className="app__footer-cards">
         <div className="app__footer-card ">
           <img src={images.email} alt="email" />
-          <a href="mailto:hello@micael.com" className="p-text">hello@micael.com</a>
+              <a href="mailto:sangampshinde@gmail.com" className="p-text">
+        sangampshinde@gmail.com
+      </a>
         </div>
-        <div className="app__footer-card">
-          <img src={images.mobile} alt="phone" />
-          <a href="tel:+1 (123) 456-7890" className="p-text">+1 (123) 456-7890</a>
-        </div>
+       <div className="app__footer-card">
+        <img src={images.mobile} alt="phone" />
+        
+        <a href="tel:+919823448966" className="p-text">
+          +91 9823448966
+        </a>
+      </div>
       </div>
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+            <input
+  className="p-text"
+  type="text"
+  placeholder="Your Name"
+  name="name"
+  value={name}
+  onChange={handleChangeInput}
+/>
           </div>
           <div className="app__flex">
             <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />

@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: '.',
 
-  projectId: 'vyqhv9hg',
+  projectId:'vyqhv9hg',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
@@ -15,4 +15,5 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+  token: process.env.REACT_APP_SANITY_TOKEN,
 })

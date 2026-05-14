@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import './About.scss'
 import { motion } from 'framer-motion';
-import { images } from "../../constants"
+// import { images } from "../../constants"
 import  { urlFor, client} from "../../client"
 import { AppWrap ,MotionWrap} from "../../wrapper"
 
 
-const abouts1 = [
-  {
-    title: "Web Development",
-    description: "I build responsive and scalable web applications.",
-    imageUrl: images?.about01,
-  },
-  {
-    title: "Frontend Development",
-    description: "I create modern, responsive and interactive UI using React.",
-    imageUrl: images?.about02,
-  },
-  {
-    title: "Backend Development",
-    description: "I develop secure and scalable APIs using Node.js & Express.",
-    imageUrl: images?.about03,
-  },
-  {
-    title: "UI/UX Design",
-    description: "I design clean, user-friendly and modern interfaces.",
-    imageUrl: images.about04,
-  },
-];
+// const abouts1 = [
+//   {
+//     title: "Web Development",
+//     description: "I build responsive and scalable web applications.",
+//     imageUrl: images?.about01,
+//   },
+//   {
+//     title: "Frontend Development",
+//     description: "I create modern, responsive and interactive UI using React.",
+//     imageUrl: images?.about02,
+//   },
+//   {
+//     title: "Backend Development",
+//     description: "I develop secure and scalable APIs using Node.js & Express.",
+//     imageUrl: images?.about03,
+//   },
+//   {
+//     title: "UI/UX Design",
+//     description: "I design clean, user-friendly and modern interfaces.",
+//     imageUrl: images.about04,
+//   },
+// ];
 
 
 const About = () => {
@@ -61,7 +61,7 @@ const sortedAbouts = [...abouts].sort((a, b) => {
 
 
 
-console.log("abouts",abouts)
+// console.log("abouts",abouts)
 
 
 

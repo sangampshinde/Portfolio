@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  BsTwitter,
-  BsInstagram,
+  // BsTwitter,
+  // BsInstagram,
   BsLinkedin,
   BsGithub,
 } from "react-icons/bs";

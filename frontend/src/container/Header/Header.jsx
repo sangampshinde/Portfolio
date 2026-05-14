@@ -1,4 +1,6 @@
-import React from "react";
+
+import React from "react"; 
+// import { client } from "../../client";
 import "./Header.scss";
 import { images } from "../../constants";
 import { motion } from "framer-motion";
@@ -17,6 +19,22 @@ const scaleVariants = {
 };
 
 const Header = () => {
+//   const [resumeUrl, setResumeUrl] = useState("");
+// useEffect(() => {
+//   const query = `*[_type == "resume"][0]{
+//     resumeFile{
+//       asset->{
+//         url
+//       }
+//     }
+//   }`;
+
+//   client.fetch(query).then((data) => {
+//     setResumeUrl(data?.resumeFile?.asset?.url);
+//   });
+// }, []);
+
+
   return (
     <div className="app__header app__flex">
        <motion.div
@@ -37,6 +55,8 @@ const Header = () => {
           <p className="p-text"> Full Stack Web Developer</p>
           {/* <p className="p-text">Freelancer</p> */}
         </div>
+
+        
       </div>
     </motion.div>
       <motion.div
